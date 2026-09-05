@@ -75,3 +75,16 @@ async function runCau15() {
 }
 
 runCau15();
+
+// Câu 16
+async function runCau16() {
+    const results = await Promise.all([
+        multiplyByThree(1),
+        multiplyByThree(2),
+        multiplyByThree(3)
+    ]);
+
+    console.log("Câu 16:", results);
+}
+
+runCau16();
