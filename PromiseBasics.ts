@@ -53,3 +53,16 @@ randomPromise
     .catch((error) => {
         console.log("Câu 4 lỗi:", error);
     });
+
+// Câu 5
+function simulateTask(time: number): Promise<string> {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Task done");
+        }, time);
+    });
+}
+
+simulateTask(2000).then((result) => {
+    console.log("Câu 5:", result);
+});
