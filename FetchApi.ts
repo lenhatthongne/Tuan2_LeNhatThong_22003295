@@ -86,3 +86,20 @@ function downloadFile(): Promise<string> {
 downloadFile().then((result) => {
     console.log("Câu 25:", result);
 });
+
+// Câu 26
+function wait(ms: number): Promise<void> {
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+    });
+}
+
+async function runCau26() {
+    console.log("Câu 26: Waiting...");
+
+    await wait(5000);
+
+    console.log("Câu 26: Waited 5 seconds");
+}
+
+runCau26();
