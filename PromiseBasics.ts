@@ -34,3 +34,22 @@ function getError(): Promise<string> {
 getError().catch((error) => {
     console.log("Câu 3:", error.message);
 });
+
+// Câu 4
+const randomPromise = new Promise<number>((resolve, reject) => {
+    const number = Math.random();
+
+    if (number >= 0.5) {
+        resolve(number);
+    } else {
+        reject("Random number is less than 0.5");
+    }
+});
+
+randomPromise
+    .then((result) => {
+        console.log("Câu 4 thành công:", result);
+    })
+    .catch((error) => {
+        console.log("Câu 4 lỗi:", error);
+    });
