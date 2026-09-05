@@ -103,3 +103,43 @@ async function runCau17() {
 }
 
 runCau17();
+
+// Câu 18
+type UserInfo = {
+    id: number;
+    name: string;
+};
+
+async function fetchUser(id: number): Promise<UserInfo> {
+    await new Promise<void>((resolve) => {
+        setTimeout(resolve, 1000);
+    });
+
+    return {
+        id: id,
+        name: `User ${id}`
+    };
+}
+
+async function runCau18() {
+    const user = await fetchUser(1);
+    console.log("Câu 18:", user);
+}
+
+runCau18();
+
+// Câu 19
+async function fetchUsers(ids: number[]): Promise<UserInfo[]> {
+    const users = await Promise.all(
+        ids.map((id) => fetchUser(id))
+    );
+
+    return users;
+}
+
+async function runCau19() {
+    const users = await fetchUsers([1, 2, 3]);
+    console.log("Câu 19:", users);
+}
+
+runCau19();
