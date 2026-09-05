@@ -84,3 +84,12 @@ Promise.race([
 ]).then((result) => {
     console.log("Câu 7:", result);
 });
+
+// Câu 8
+Promise.resolve(2)
+    .then((number) => number * number)
+    .then((number) => number * 2)
+    .then((number) => number + 5)
+    .then((result) => {
+        console.log("Câu 8:", result);
+    });
