@@ -51,3 +51,38 @@ async function runCau23() {
 }
 
 runCau23();
+
+// Câu 24
+async function postData() {
+    const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                title: "TypeScript",
+                body: "Async Await",
+                userId: 1
+            })
+        }
+    );
+
+    const data = await response.json();
+    console.log("Câu 24:", data);
+}
+
+postData();
+// Câu 25
+function downloadFile(): Promise<string> {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Download completed");
+        }, 3000);
+    });
+}
+
+downloadFile().then((result) => {
+    console.log("Câu 25:", result);
+});
