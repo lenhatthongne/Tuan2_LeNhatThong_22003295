@@ -48,3 +48,30 @@ async function runCau13() {
 }
 
 runCau13();
+
+// Câu 14
+async function multiplyByThree(number: number): Promise<number> {
+    await new Promise<void>((resolve) => {
+        setTimeout(resolve, 1000);
+    });
+
+    return number * 3;
+}
+
+async function runCau14() {
+    const result = await multiplyByThree(5);
+    console.log("Câu 14:", result);
+}
+
+runCau14();
+
+// Câu 15
+async function runCau15() {
+    const result1 = await multiplyByThree(1);
+    const result2 = await multiplyByThree(2);
+    const result3 = await multiplyByThree(3);
+
+    console.log("Câu 15:", result1, result2, result3);
+}
+
+runCau15();
