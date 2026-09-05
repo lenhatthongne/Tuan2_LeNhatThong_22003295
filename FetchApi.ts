@@ -175,3 +175,38 @@ async function queueProcess() {
 }
 
 queueProcess();
+
+// Câu 30
+async function fetchTodo(url: string): Promise<any> {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+    }
+
+    return response.json();
+}
+
+async function runCau30() {
+    const results = await Promise.allSettled([
+        fetchTodo("https://jsonplaceholder.typicode.com/todos/1"),
+        fetchTodo("https://jsonplaceholder.typicode.com/todos/2"),
+        fetchTodo("https://jsonplaceholder.typicode.com/invalid")
+    ]);
+
+    results.forEach((result, index) => {
+        if (result.status === "fulfilled") {
+            console.log(
+                `Câu 30 - API ${index + 1}: Success`,
+                result.value
+            );
+        } else {
+            console.log(
+                `Câu 30 - API ${index + 1}: Failed`,
+                result.reason.message
+            );
+        }
+    });
+}
+
+runCau30();
