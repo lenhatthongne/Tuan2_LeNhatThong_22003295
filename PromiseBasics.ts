@@ -108,3 +108,19 @@ numbersPromise
     .then((evenNumbers) => {
         console.log("Câu 9:", evenNumbers);
     });
+
+    // Câu 10
+const finallyPromise = new Promise<string>((resolve) => {
+    resolve("Success");
+});
+
+finallyPromise
+    .then((result) => {
+        console.log("Câu 10:", result);
+    })
+    .catch((error) => {
+        console.log("Câu 10 lỗi:", error);
+    })
+    .finally(() => {
+        console.log("Done");
+    });
