@@ -103,3 +103,42 @@ async function runCau26() {
 }
 
 runCau26();
+
+// Câu 27
+async function fetchWithRetry(
+    url: string,
+    retries: number
+): Promise<any> {
+    try {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Request failed");
+        }
+
+        return await response.json();
+    } catch (error) {
+        if (retries > 0) {
+            console.log("Câu 27: Retry...");
+
+            return fetchWithRetry(url, retries - 1);
+        }
+
+        throw error;
+    }
+}
+
+async function runCau27() {
+    try {
+        const data = await fetchWithRetry(
+            "https://jsonplaceholder.typicode.com/todos/1",
+            3
+        );
+
+        console.log("Câu 27:", data);
+    } catch (error) {
+        console.log("Câu 27 lỗi:", (error as Error).message);
+    }
+}
+
+runCau27();
