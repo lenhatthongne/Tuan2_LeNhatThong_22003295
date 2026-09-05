@@ -142,3 +142,26 @@ async function runCau27() {
 }
 
 runCau27();
+
+// Câu 28
+async function processTask(id: number): Promise<string> {
+    await new Promise<void>((resolve) => {
+        setTimeout(resolve, 1000);
+    });
+
+    return `Task ${id} done`;
+}
+
+async function batchProcess() {
+    const results = await Promise.all([
+        processTask(1),
+        processTask(2),
+        processTask(3),
+        processTask(4),
+        processTask(5)
+    ]);
+
+    console.log("Câu 28:", results);
+}
+
+batchProcess();
