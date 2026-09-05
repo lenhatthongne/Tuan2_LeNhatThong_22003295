@@ -93,3 +93,18 @@ Promise.resolve(2)
     .then((result) => {
         console.log("Câu 8:", result);
     });
+
+// Câu 9
+const numbersPromise = new Promise<number[]>((resolve) => {
+    setTimeout(() => {
+        resolve([1, 2, 3, 4, 5, 6]);
+    }, 1000);
+});
+
+numbersPromise
+    .then((numbers) => {
+        return numbers.filter((number) => number % 2 === 0);
+    })
+    .then((evenNumbers) => {
+        console.log("Câu 9:", evenNumbers);
+    });
