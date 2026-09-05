@@ -27,3 +27,27 @@ async function runCau22() {
 }
 
 runCau22();
+
+// Câu 23
+type Todo = {
+    id: number;
+    title: string;
+    completed: boolean;
+};
+
+async function getCompletedTodos(): Promise<Todo[]> {
+    const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos"
+    );
+
+    const todos = await response.json() as Todo[];
+
+    return todos.filter((todo) => todo.completed);
+}
+
+async function runCau23() {
+    const todos = await getCompletedTodos();
+    console.log("Câu 23:", todos);
+}
+
+runCau23();
