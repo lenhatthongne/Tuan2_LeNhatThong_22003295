@@ -76,3 +76,11 @@ Promise.all([
     console.log("Câu 6:", results);
 });
 
+// Câu 7
+Promise.race([
+    simulateTask(1000),
+    simulateTask(2000),
+    simulateTask(3000)
+]).then((result) => {
+    console.log("Câu 7:", result);
+});
