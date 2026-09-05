@@ -165,3 +165,13 @@ async function batchProcess() {
 }
 
 batchProcess();
+
+// Câu 29
+async function queueProcess() {
+    for (let i = 1; i <= 5; i++) {
+        const result = await processTask(i);
+        console.log("Câu 29:", result);
+    }
+}
+
+queueProcess();
