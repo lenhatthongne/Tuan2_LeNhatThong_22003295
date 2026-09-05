@@ -143,3 +143,36 @@ async function runCau19() {
 }
 
 runCau19();
+
+
+// Câu 20
+function apiCall(): Promise<string> {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("API Success");
+        }, 3000);
+    });
+}
+
+function timeout(ms: number): Promise<never> {
+    return new Promise((_, reject) => {
+        setTimeout(() => {
+            reject(new Error("API call timed out"));
+        }, ms);
+    });
+}
+
+async function runCau20() {
+    try {
+        const result = await Promise.race([
+            apiCall(),
+            timeout(2000)
+        ]);
+
+        console.log("Câu 20:", result);
+    } catch (error) {
+        console.log("Câu 20:", (error as Error).message);
+    }
+}
+
+runCau20();
