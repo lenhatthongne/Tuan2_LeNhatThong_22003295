@@ -66,3 +66,13 @@ function simulateTask(time: number): Promise<string> {
 simulateTask(2000).then((result) => {
     console.log("Câu 5:", result);
 });
+
+// Câu 6 note:: Dùng lại simulateTask() của câu 5
+Promise.all([
+    simulateTask(1000),
+    simulateTask(2000),
+    simulateTask(3000)
+]).then((results) => {
+    console.log("Câu 6:", results);
+});
+
