@@ -88,3 +88,18 @@ async function runCau16() {
 }
 
 runCau16();
+
+// Câu 17
+async function runCau17() {
+    const promises = [
+        Promise.resolve("Task 1"),
+        Promise.resolve("Task 2"),
+        Promise.resolve("Task 3")
+    ];
+
+    for await (const result of promises) {
+        console.log("Câu 17:", result);
+    }
+}
+
+runCau17();
